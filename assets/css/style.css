@@ -8,14 +8,14 @@
 }
 
 html {
-	font-size: 16px;
+	font: size 16px;
 	line-height: 1.6;
 	scroll-behavior: smooth;
 }
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-	color: #610c25;
+	color: #000000;
 	background-color: #ffaed6;
 	margin: 0;
 	padding: 0;
@@ -74,7 +74,7 @@ footer {
 	margin-top: 4rem;
 	border-top: 5px solid #e9185d;
 	font-size: 0.875rem;
-	color: #02991b;
+	color: #000000;
 }
 
 footer a {
