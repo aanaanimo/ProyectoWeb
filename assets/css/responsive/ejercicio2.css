@@ -1,7 +1,7 @@
 /* ===== PORTAFOLIO RESPONSIVE CON TÉCNICAS MODERNAS ===== */
 
 :root {
-	--primary-color: #f63b92;
+	--primary-color: #d14272;
 	--secondary-color: #64748b;
 	--accent-color: #f59e0b;
 	--border-color: #e2e8f0;
@@ -15,11 +15,15 @@
 	--spacing-xl: 3rem;
 }
 
+/* ===== TIPOGRAFÍA GENERAL MONTSERRAT ===== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
 body {
-	font-family: system-ui, -apple-system, sans-serif;
+	font-family: "Montserrat", sans-serif;
 	line-height: 1.6;
 }
 
+/* ===== CONTAINER ===== */
 .container {
 	container-type: inline-size;
 	container-name: portfolio-container;
@@ -49,7 +53,7 @@ body {
 
 .portfolio-title {
 	font-size: clamp(1.5rem, 4vw, 2.5rem);
-	font-weight: 700;
+	font-weight: 1000;
 }
 
 .portfolio-nav {
@@ -79,22 +83,20 @@ body {
 	margin: var(--spacing-xl) 0;
 }
 
-/* ===== SUBGRID PARA ALINEACIÓN PERFECTA ===== */
+/* ===== SUBGRID ===== */
 .project-card {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column: span 1;
-	/* Fallback para navegadores sin soporte de subgrid */
 	@supports not (grid-template-columns: subgrid) {
 		display: flex;
 		flex-direction: column;
 	}
 }
 
-/* Aplicar subgrid solo cuando está soportado */
 @supports (grid-template-columns: subgrid) {
 	.projects-grid {
-		grid-template-rows: auto auto 1fr auto; /* Título, imagen, descripción, tags */
+		grid-template-rows: auto auto 1fr auto;
 	}
 
 	.project-card {
@@ -123,14 +125,7 @@ body {
 	}
 }
 
-/* ===== CONTAINER QUERIES (ENFOQUE MOBILE-FIRST) ===== */
-/*
- * ¡LOS CONTAINER QUERIES TAMBIÉN PUEDEN SER MOBILE-FIRST!
- * Los estilos base son para contenedores estrechos (como móvil)
- * min-width agrega estilos para contenedores más anchos
- */
-
-/* Base: Contenedores estrechos (como móvil) - layout horizontal de tarjetas */
+/* ===== CONTAINER QUERIES ===== */
 .project-card {
 	display: flex;
 	flex-direction: row;
@@ -149,7 +144,6 @@ body {
 	flex: 1;
 }
 
-/* Mejora progresiva: Contenedores anchos - layout vertical de tarjetas */
 @container portfolio-container (min-width: 600px) {
 	.project-card {
 		display: flex;
@@ -196,21 +190,40 @@ body {
 	transform: scale(1.05);
 }
 
+/* ===== CONTENIDO EN TRES COLUMNAS ===== */
 .project-content {
-	padding: var(--spacing-lg);
+	font-family: "Montserrat", sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: var(--text-color, #111);
+	margin-top: 1.5rem;
+
+	column-count: 3;
+	column-gap: 2.5rem;
+	text-align: justify;
 }
 
 .project-content h3 {
-	font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-	font-weight: 600;
-	margin-bottom: var(--spacing-sm);
-	color: var(--text-color);
+	font-size: 1.5rem;
+	color: var(--primary-color, #d14272);
+	margin-bottom: 1.2rem;
+	column-span: all;
+	font-weight: 700;
+	text-align: left; /* alineado a la izquierda */
+	animation: slideInLeft 1.2s ease forwards;
 }
 
 .project-content p {
-	color: var(--secondary-color);
-	margin-bottom: var(--spacing-md);
-	line-height: 1.5;
+	break-inside: avoid;
+	margin-bottom: 1rem;
+	padding-left: 0.5rem;
+}
+
+.project-content strong {
+	display: block;
+	font-weight: 700;
+	color: var(--primary-color, #b12d56);
+	margin-bottom: 0.3rem;
 }
 
 /* ===== TAGS ===== */
@@ -239,7 +252,7 @@ h3 {
 
 h2 {
 	font-size: clamp(1.5rem, 4vw, 2.25rem);
-	text-align: center;
+	text-align: left;
 	margin: var(--spacing-xl) 0;
 	color: var(--text-color);
 }
@@ -270,4 +283,45 @@ img {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+	.project-content {
+		column-count: 1;
+	}
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes slideInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;              /* más grueso */
+  font-size: 2.2rem;             /* tamaño ajustable */
+  color: #d14272;                /* color del texto */
+  letter-spacing: 1px;           /* separación de letras */
+  text-transform: case;     /* todo en mayúsculas (opcional) */
+  margin-bottom: 2rem;           /* espacio debajo del título */
+  animation: fadeInTitle 1.2s ease-out forwards; /* animación opcional */
+}
+
+/* ===== ANIMACIÓN DE APARICIÓN ===== */
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

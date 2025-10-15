@@ -1,111 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portafolio Responsive</title>
-		<!-- Enlaces relativos: funcionan localmente, se rompen en GitHub Pages -->
-		<link rel="stylesheet" href="../../assets/css/index.css" />
-		<link rel="stylesheet" href="../../assets/css/responsive/ejercicio2.css" />
-	</head>
-	<body>
-		<header class="portfolio-header">
-			<div class="container">
-				<h1 class="portfolio-title">Mi Portafolio</h1>
-            
-				<nav class="portfolio-nav">
-					<a href="#proyectos">Proyectos</a>
-					<a href="#sobre">Sobre Mí</a>
-					<a href="#contacto">Contacto</a>
-				</nav>
-			</div>
-		</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis de 4 Webs</title>
 
-		<main class="portfolio-main">
-			<section class="projects-section">
-				<div class="container">
-					<h2>Mis Proyectos</h2>
-                    
-					<div class="projects-grid">
-						<article class="project-card">
-                        <iframe
-          src="https://ponpon-mania.com/"
-          title="Sitio Awwwards"
-          width="100%"
-          height="400"
-          loading="lazy"
-        ></iframe>							
-                    <div class="project-content">
-								<h3>PonPon Mania</h3>
-								<p>Descripción del primer proyecto desarrollado con tecnologías modernas.</p>
-								<div class="project-tags">
-									<span class="tag">HTML</span>
-									<span class="tag">CSS</span>
-									<span class="tag">JavaScript</span>
-								</div>
-							</div>
-						</article>
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Análisis comparativo de cuatro sitios web seleccionados por su diseño, interactividad y experiencia de usuario."
+    />
+    <meta name="keywords" content="diseño web, análisis, UX, UI, portafolio" />
+    <meta name="author" content="Nombre del autor" />
 
-						<article class="project-card">
-                        <iframe
-                         src="https://prolificdigital.com/"
-                         title="Sitio Webby"
-                         width="100%"
-                         height="400"
-                           loading="lazy"
-                          ></iframe>										<div class="project-content">
-								<h3>Aplicación Móvil</h3>
-								<p>Una aplicación móvil responsive que se adapta a diferentes dispositivos.</p>
-								<div class="project-tags">
-									<span class="tag">React</span>
-									<span class="tag">CSS Grid</span>
-									<span class="tag">API</span>
-								</div>
-							</div>
-						</article>
+    <!-- Enlaces de estilos (rutas ajustadas para GitHub Pages) -->
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/responsive/ejercicio2.css" />
 
-						<article class="project-card">
-                        <iframe
-                         src="https://ponpon-mania.com/"
-                         title="Sitio Awwwards"
-                         width="100%"
-                         height="400"
-                           loading="lazy"
-                          ></iframe>										<div class="project-content">
-								<h3>Dashboard</h3>
-								<p>Panel de control con visualizaciones de datos en tiempo real.</p>
-								<div class="project-tags">
-									<span class="tag">Vue.js</span>
-									<span class="tag">D3.js</span>
-									<span class="tag">Node.js</span>
-								</div>
-							</div>
-						</article>
+    <style>
+      /* Suaviza el desplazamiento entre secciones */
+      html {
+        scroll-behavior: smooth;
+      }
 
-						<article class="project-card">
-                        <iframe
-                         src="https://ponpon-mania.com/"
-                         title="Sitio Awwwards"
-                         width="100%"
-                         height="400"
-                           loading="lazy"
-                          ></iframe>										<div class="project-content">
-								<h3>E-commerce</h3>
-								<p>Tienda online con carrito de compras y sistema de pagos.</p>
-								<div class="project-tags">
-									<span class="tag">PHP</span>
-									<span class="tag">MySQL</span>
-									<span class="tag">Stripe</span>
-								
-					</div>
-				</div>
-			</section>
-		</main>
+      /* Opcional: resalta el enlace activo en el menú */
+      .portfolio-nav a.active {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
 
-		<footer class="portfolio-footer">
-			<div class="container">
-				<p>&copy; 2025 Mi Portafolio. Diseñado con técnicas modernas de CSS.</p>
-			</div>
-		</footer>
-	</body>
+  <body>
+    <header class="portfolio-header">
+      <div class="container">
+        <h1 class="portfolio-title">Análisis de 4 Webs</h1>
+
+        <!-- 🔹 Menú de navegación actualizado -->
+        <nav class="portfolio-nav" aria-label="Navegación principal">         
+          <a href="#ponponmania">PonPon Mania</a>
+          <a href="#spacetypeco">Space Type Co.</a>
+          <a href="#arngren">Arngren.net</a>
+          <a href="#locomotive">Locomotive</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="portfolio-main">
+      <!-- Sección principal -->
+      <section id="webs-analizadas" class="projects-section">
+        <div class="container">
+          <div class="projects-grid">
+            <!-- 🔸 Web 1 -->
+            <section id="ponponmania" class="webs-analizadas">
+              <h2 class="section-title">Webs Analizadas</h2>
+
+              <article class="project-card">
+                <iframe
+                  src="https://ponpon-mania.com/"
+                  title="Sitio web PonPon Mania"
+                  aria-label="Vista previa del sitio PonPon Mania"
+                  width="100%"
+                  height="400"
+                  loading="lazy"
+                ></iframe>
+
+                <div class="project-content">
+                  <h3 class="animated-title">PonPon Mania</h3>
+
+                  <p>
+                    <strong>Selección del sitio:</strong>  
+                    PonPon Mania es un proyecto web experimental que destaca por su
+                    estética extremadamente colorida y su tono juguetón. El sitio fue concebido como un espacio de exploración visual y
+                    sensorial, centrado en la textura y el movimiento.
+                  </p>
+
+                  <p>
+                    <strong>Navegación inicial e impresión:</strong>  
+                    Al entrar, el usuario se enfrenta a una
+                    experiencia saturada de color y movimiento. No hay un menú tradicional, sino una navegación intuitiva basada en el
+                    desplazamiento y en la curiosidad del visitante. La primera impresión es caótica pero fascinante: una explosión
+                    sensorial que refleja un universo lúdico.
+                  </p>
+
+                  <p>
+                    <strong>Estructura y contenido:</strong>  
+                    Es una web tipo <em>one-page</em> donde cada
+                    sección fluye visualmente hacia la siguiente. La jerarquía visual es poco convencional, priorizando la estética
+                    sobre la legibilidad. El texto es mínimo y actúa más como acompañamiento al entorno gráfico que como contenido
+                    informativo.
+                  </p>
+
+                  <p>
+                    <strong>Análisis visual e identidad:</strong>  
+                    La paleta de colores es vibrante, dominada por
+                    rosas, azules y amarillos pastel. La tipografía es redondeada y amable, alineada con la temática “kawaii”. Las
+                    animaciones suaves y el uso de elementos flotantes crean una sensación de ingravidez. Visualmente, el sitio logra
+                    un lenguaje propio, casi hipnótico.
+                  </p>
+
+                  <p>
+                    <strong>Interacción e innovación:</strong>  
+                    Se apoya en microanimaciones, efectos de hover y
+                    transiciones basadas en scroll. Aunque no hay contenido 3D, las animaciones 2D y la sincronización del movimiento
+                    con el desplazamiento hacen que el usuario se sienta inmerso. Es una web donde el “placer visual” prima sobre la
+                    función práctica.
+                  </p>
+
+                  <p>
+                    <strong>Usabilidad y accesibilidad:</strong>  
+                    Desde un punto de vista de UX, la experiencia
+                    es más artística que funcional. No está pensada para cumplir objetivos de conversión, sino como obra visual. La
+                    accesibilidad es limitada: contrastes de color bajos y texto poco legible en algunos fondos. Sin embargo, su
+                    intención es clara: provocar una reacción emocional, no facilitar una tarea.
+                  </p>
+
+                  <p>
+                    <strong>Desempeño técnico:</strong>  
+                    A pesar del alto número de elementos gráficos, el
+                    rendimiento es aceptable. Las animaciones son fluidas y las cargas no se sienten pesadas. Es evidente un trabajo
+                    de optimización visual para mantener la experiencia consistente.
+                  </p>
+
+                  <p>
+                    <strong>Conclusión:</strong>  
+                    PonPon Mania destaca como un ejemplo de diseño
+                    <em>experimental y emocional</em>, donde el contenido se convierte en arte visual. Su principal valor radica en la
+                    originalidad, la coherencia estética y la capacidad de generar sensaciones, aunque sacrifica claridad por impacto.
+                    Ideal como referencia para proyectos que busquen explorar el límite entre ilustración, animación y experiencia
+                    web.
+                  </p>
+                </div>
+              </article>
+            </section>
+
+            <!-- 🔸 Web 2 -->
+            <article id="spacetypeco" class="project-card">
+              <iframe
+                src="https://spacetypeco.com/"
+                title="Sitio web Space Type Co."
+                aria-label="Vista previa del sitio Space Type Co."
+                width="100%"
+                height="400"
+                loading="lazy"
+              ></iframe>
+
+              <div class="project-content">
+                <h3>Space Type Co.</h3>
+                <p>
+                  Página tipográfica con diseño minimalista y gran atención a la
+                  composición y movimiento.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Tipografía</span>
+                  <span class="tag">Interactividad</span>
+                  <span class="tag">Diseño Gráfico</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 🔸 Web 3 -->
+            <article id="arngren" class="project-card">
+              <iframe
+                src="https://arngren.net/"
+                title="Sitio web Arngren"
+                aria-label="Vista previa del sitio Arngren"
+                width="100%"
+                height="400"
+                loading="lazy"
+              ></iframe>
+
+              <div class="project-content">
+                <h3>Arngren.net</h3>
+                <p>
+                  Ejemplo clásico de mal diseño web, con saturación visual y
+                  falta de jerarquía informativa.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Diseño Caótico</span>
+                  <span class="tag">UX Negativo</span>
+                  <span class="tag">Ejemplo de Error</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 🔸 Web 4 -->
+            <article id="locomotive" class="project-card">
+              <iframe
+                src="https://locomotive.ca/en"
+                title="Sitio web Locomotive"
+                aria-label="Vista previa del sitio Locomotive"
+                width="100%"
+                height="400"
+                loading="lazy"
+              ></iframe>
+
+              <div class="project-content">
+                <h3>Locomotive</h3>
+                <p>
+                  Agencia digital con un diseño inmersivo y navegación fluida,
+                  destacando en experiencia de usuario.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">UX/UI</span>
+                  <span class="tag">Animación</span>
+                  <span class="tag">Scroll Interactivo</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="portfolio-footer">
+      <div class="container">
+        <p>&copy; 2025 Análisis de 4 Webs. Diseñado con técnicas modernas de CSS.</p>
+      </div>
+    </footer>
+  </body>
 </html>
