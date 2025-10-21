@@ -198,7 +198,7 @@ body {
 	color: var(--text-color, #111);
 	margin-top: 1.5rem;
 
-	column-count: 4;
+	column-count: 3;
 	column-gap: 2.5rem;
 	text-align: justify;
 }
