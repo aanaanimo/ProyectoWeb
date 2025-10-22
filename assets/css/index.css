@@ -1,5 +1,5 @@
 /* ===========================================================
-   PORTAFOLIO FULL WIDTH EN BLANCO Y NEGRO — AJUSTADO
+   PORTAFOLIO FULL WIDTH EN BLANCO Y NEGRO — HERO + TARJETAS
    =========================================================== */
 
 /* ===== VARIABLES ===== */
@@ -14,13 +14,15 @@
 	--spacing-lg: 2rem;
 	--spacing-xl: 3rem;
 	--text-color: #111;
+	--highlight-color: #ffffff;
 	--shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 
 /* ===== TIPOGRAFÍA ===== */
 @font-face {
 	font-family: "Futura";
-	src: local("Futura"), url("/assets/fonts/Futura.woff2") format("woff2");
+	src: local("Futura"), url("../fonts/Futura.woff2") format("woff2");
 	font-display: swap;
 }
 
@@ -33,66 +35,118 @@ body {
 	padding: 0;
 	background-color: var(--secondary-color);
 	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+/* ===== ANIMACIÓN FADE-IN ===== */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 /* ===========================================================
-   HEADER
+   HEADER — PORTADA
    =========================================================== */
 .portfolio-header {
 	background: var(--primary-color);
 	color: var(--secondary-color);
-	padding: var(--spacing-lg) var(--spacing-xl);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	text-align: center;
+	height: 100vh;
+	padding: var(--spacing-xl);
 	box-shadow: var(--shadow);
-	position: sticky;
-	top: 0;
-	z-index: 100;
+	position: relative;
+	overflow: hidden;
 }
 
-/* === Título principal === */
+/* Fondo de la portada */
+.portfolio-header::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(circle at center, #111 0%, #000 100%);
+	opacity: 0.8;
+	z-index: 0;
+}
+
+/* === Título principal (efecto cromado) === */
 .portfolio-title {
-	font-size: clamp(2rem, 5vw, 3rem);
+	position: relative;
+	z-index: 1;
+	font-size: clamp(3rem, 8vw, 5rem);
 	font-weight: 900;
-	color: var(--secondary-color);
-	letter-spacing: 1px;
 	text-transform: uppercase;
-	margin-bottom: var(--spacing-sm);
+	letter-spacing: 2px;
+	margin-bottom: var(--spacing-md);
+	animation: fadeInUp 1.5s ease-out both;
+	background: linear-gradient(
+		135deg,
+		#d9d9d9 0%,
+		#ffffff 10%,
+		#bfbfbf 25%,
+		#e0e0e0 40%,
+		#fefefe 60%,
+		#a0a0a0 80%,
+		#ffffff 100%
+	);
+	-webkit-background-clip: text;
+	background-clip: text; /* Compatibilidad: aplica la propiedad estándar también */
+	-webkit-text-fill-color: transparent;
+	filter: brightness(1.3);
+	text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
-/* === Navegación principal (centrada bajo el título) === */
+/* ===========================================================
+   NAVEGACIÓN PRINCIPAL (BOTONES FIJOS DENTRO DEL FRAME)
+   =========================================================== */
 .portfolio-nav {
+	position: fixed; /* 👈 completamente fija */
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
 	display: flex;
 	justify-content: center;
-	gap: var(--spacing-sm);
+	gap: var(--spacing-md);
 	flex-wrap: wrap;
-	margin-top: var(--spacing-xs);
+	padding: var(--spacing-sm) var(--spacing-md);
+	background: rgba(0, 0, 0, 0.6); /* 👈 fondo transparente dentro del frame */
+	backdrop-filter: blur(6px);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* === Botones === */
+/* === Botones redondeados === */
 .portfolio-nav a {
 	color: var(--secondary-color);
 	text-decoration: none;
-	padding: 0.3rem 0.9rem; /* 👈 Más pequeños */
-	border: 1.5px solid var(--secondary-color);
-	border-radius: 6px;
+	padding: 0.6rem 1.4rem;
+	border: 2px solid var(--secondary-color);
+	border-radius: 9999px;
 	font-weight: 600;
-	transition: all 0.2s ease;
+	transition: all 0.25s ease;
 	text-transform: uppercase;
-	font-size: 0.75rem;
-	letter-spacing: 0.5px;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	background: transparent;
 }
 
 .portfolio-nav a:hover {
 	background-color: var(--secondary-color);
 	color: var(--primary-color);
-	transform: scale(1.05);
+	transform: scale(1.07);
 }
 
 /* ===========================================================
-   CONTENEDOR PRINCIPAL DE TARJETAS
+   CONTENEDOR DE TARJETAS
    =========================================================== */
 .projects-grid {
 	display: flex;
@@ -100,8 +154,10 @@ body {
 	align-items: center;
 	gap: var(--spacing-xl);
 	margin: var(--spacing-xl) auto;
-	padding: 0;
+	/* gutter pequeño para dejar un margen en los lados */
+	padding: 0 0.5rem;
 	width: 100%;
+	max-width: none; /* permitir que las tarjetas usen el ancho de la ventana */
 	box-sizing: border-box;
 }
 
@@ -115,11 +171,18 @@ body {
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 	overflow: hidden;
 	transition: all 0.3s ease;
-	width: 100%; /* 👈 Ocupan todo el ancho */
-	max-width: 3000px; /* 👈 Prácticamente todo el ancho */
+	/* ocupar casi todo el ancho de la ventana, dejando un gutter de 1rem total */
+	width: calc(100vw - 2rem);
+	max-width: none;
+	box-sizing: border-box;
+	margin: 0 auto var(--spacing-xl);
 	display: flex;
 	flex-direction: column;
-	margin-bottom: var(--spacing-xl);
+}
+
+/* Evitar overflow horizontal en vistas muy pequeñas */
+@media (max-width: 900px) {
+    .project-card { width: calc(100% - 1rem); }
 }
 
 .project-card:hover {
@@ -130,7 +193,7 @@ body {
 /* === Imágenes === */
 .project-card img {
 	width: 100%;
-	height: 450px;
+	height: 480px;
 	object-fit: cover;
 	display: block;
 	border-bottom: 2px solid var(--primary-color);
@@ -148,9 +211,9 @@ body {
 	max-width: 100%;
 }
 
-/* === Subtítulos de sección === */
+/* === Subtítulo (ej. Webs Analizadas) === */
 .project-content h3 {
-	font-size: clamp(1.6rem, 3vw, 1.8rem);
+	font-size: clamp(2rem, 3.5vw, 2.6rem);
 	margin-top: var(--spacing-xl);
 	margin-bottom: var(--spacing-md);
 	font-weight: 800;
@@ -162,23 +225,23 @@ body {
 	line-height: 1.2;
 }
 
+/* === Nombres de webs === */
+.project-content strong {
+	display: block;
+	font-size: 1.4em;
+	margin-top: var(--spacing-lg);
+	margin-bottom: var(--spacing-xs);
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
 /* === Párrafos === */
 .project-content p {
 	margin-bottom: var(--spacing-lg);
 	break-inside: avoid;
 	text-align: left;
 	line-height: 1.7;
-	font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-}
-
-/* === Negritas === */
-.project-content strong {
-	display: block;
-	font-size: 1.1em;
-	margin-top: var(--spacing-lg);
-	margin-bottom: var(--spacing-xs);
-	color: var(--primary-color);
-	font-weight: 700;
+	font-size: clamp(0.85rem, 1.2vw, 0.95rem);
 }
 
 /* === Tags === */
@@ -203,11 +266,18 @@ body {
 /* ===========================================================
    RESPONSIVE
    =========================================================== */
-@media (max-width: 2000px) {
-	.project-content {
-		column-count: 2;
-		column-gap: var(--spacing-lg);
-		padding: var(--spacing-lg);
+@media (max-width: 1200px) {
+	.portfolio-header {
+		height: 90vh;
+	}
+
+	.portfolio-title {
+		font-size: clamp(2.5rem, 6vw, 4rem);
+	}
+
+	.portfolio-nav a {
+		font-size: 0.8rem;
+		padding: 0.5rem 1.2rem;
 	}
 }
 
@@ -218,22 +288,23 @@ body {
 	}
 
 	.project-content h3 {
-		font-size: 1.4rem;
+		font-size: 1.8rem;
 		margin-bottom: var(--spacing-md);
 	}
 
 	.project-card img {
-		height: 300px;
+		height: 350px;
+	}
+
+	.portfolio-header {
+		height: 80vh;
+		padding: var(--spacing-lg);
 	}
 }
 
 @media (max-width: 700px) {
-	.portfolio-header {
-		padding: var(--spacing-md);
-	}
-
 	.portfolio-title {
-		font-size: 1.8rem;
+		font-size: 2rem;
 	}
 
 	.portfolio-nav {
@@ -242,11 +313,10 @@ body {
 
 	.portfolio-nav a {
 		font-size: 0.7rem;
-		padding: 0.25rem 0.7rem;
+		padding: 0.35rem 0.8rem;
 	}
 
 	.project-card {
-		width: 100%;
 		border-radius: var(--spacing-xs);
 	}
 
@@ -267,4 +337,73 @@ body {
 	font-family: "Futura", sans-serif;
 	font-weight: 500;
 	letter-spacing: 0.5px;
+}
+
+/* ===========================================================
+   CURSOR PERSONALIZADO — CÍRCULO RELLENO ANIMADO
+   =========================================================== */
+
+/* === Estilo base del cursor === */
+.custom-cursor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle at center,
+		var(--highlight-color) 0%,
+		var(--secondary-color) 80%
+	);
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	transition:
+		transform 0.15s ease-out,
+		width 0.2s ease,
+		height 0.2s ease,
+		background 0.3s ease,
+		opacity 0.3s ease;
+	z-index: 9999;
+	mix-blend-mode: difference; /* Contrasta con fondos oscuros y claros */
+	box-shadow: 0 0 25px var(--highlight-color);
+}
+
+/* === Efecto cuando el cursor pasa por encima de enlaces o botones === */
+.custom-cursor.hover {
+	width: 45px;
+	height: 45px;
+	transform: translate(-50%, -50%) scale(1.15);
+	background: radial-gradient(
+		circle at center,
+		var(--secondary-color) 0%,
+		var(--highlight-color) 100%
+	);
+	box-shadow: 0 0 50px var(--highlight-color);
+}
+
+/* === Animación de "pulso" sutil para darle vida al cursor === */
+@keyframes cursorPulse {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		box-shadow: 0 0 15px var(--highlight-color);
+	}
+	50% {
+		transform: translate(-50%, -50%) scale(1.1);
+		box-shadow: 0 0 25px var(--highlight-color);
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+		box-shadow: 0 0 15px var(--highlight-color);
+	}
+}
+
+/* Aplica el pulso continuamente */
+.custom-cursor {
+	animation: cursorPulse 2s infinite ease-in-out;
+}
+
+/* Ocultar cursor nativo en dispositivos con capacidad de hover para mostrar el cursor personalizado */
+@media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
 }
