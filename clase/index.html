@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="description" content="Aprende HTML y desarrollo web con las mejores prácticas." />
+		<meta name="keywords" content="HTML, CSS, desarrollo web, SEO, accesibilidad" />
+		<meta name="author" content="Tu Nombre" />
+		<meta name="robots" content="noindex" />
+
+		<title>WebApp Design UDIT</title>
+		<link rel="stylesheet" href="/assets/css/site.css" />
+
+		<!--Sólo cargo el barrel file-->
+
+		<link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+		<link rel="shortcut icon" href="./assets/icons/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
+		<link rel="manifest" href="./manifest.json" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Features</a></li>
+					<li><a href="./responsive/exercise-1.html">Responsive Design</a></li>
+					<li><a href="./responsive/exercise-2.html">Responsive Design 2</a></li>
+					<li><a href="./animations/index.html">Animations</a></li>
+				</ul>
+			</nav>
+			<!--
+				Theme Toggle: Pedagogical Explanation
+
+				This form provides a CSS-only theme toggle. It uses three radio inputs for 'Auto,' 'Light,' and 'Dark' themes. 
+				Each input has a unique id, and the corresponding labels serve as clickable toggle buttons.
+				- All inputs are 'hidden' to show only the styled label buttons.
+				- The checked input determines the selected theme. 
+				- Modern CSS (see site.css) uses :root:has(#theme-light:checked), etc., to set theme variables.
+				- "Auto" means the site will follow the user's system preference (light/dark).
+				- "Light" and "Dark" force the explicit color theme, regardless of system setting.
+
+				This approach does not require JavaScript. All logic is handled in CSS using the 'has()' selector and custom properties.
+			-->
+			<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
+				<input type="radio" name="theme" id="theme-auto" hidden checked />
+				<input type="radio" name="theme" id="theme-light" hidden />
+				<input type="radio" name="theme" id="theme-dark" hidden />
+				<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
+				<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
+				<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
+			</form>
+		</header>
+		<main>
+			<section>
+				<h1>Welcome to WebApp Design UDIT</h1>
+				<h2>About This WebApp</h2>
+				<p>
+					This is a sample web application design project for UDIT. Explore the features and learn more about modern web
+					development!
+				</p>
+			</section>
+			<section>
+				<h2>Features</h2>
+				<ul>
+					<li>Responsive Design</li>
+					<li>Clean Layout</li>
+					<li>Easy Navigation</li>
+				</ul>
+			</section>
+		</main>
+		<footer>
+			<p>&copy; 2024 WebApp Design UDIT. All rights reserved.</p>
+		</footer>
+	</body>
+</html>

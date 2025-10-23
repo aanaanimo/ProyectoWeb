@@ -1,8 +1,4 @@
-/* ===========================================================
-   PORTAFOLIO FULL WIDTH EN BLANCO Y NEGRO — HERO + TARJETAS
-   =========================================================== */
 
-/* ===== VARIABLES ===== */
 :root {
 	--primary-color: #000;
 	--secondary-color: #fff;
@@ -51,9 +47,6 @@ html {
 	to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===========================================================
-   HEADER — PORTADA
-   =========================================================== */
 .portfolio-header {
 	background: var(--primary-color);
 	color: var(--secondary-color);
@@ -101,9 +94,7 @@ html {
 	animation: chromeShine 6s linear infinite;
 }
 
-/* ===========================================================
-   NAVEGACIÓN PRINCIPAL (BOTONES FIJOS DENTRO DEL FRAME)
-   =========================================================== */
+
 .portfolio-nav {
 	position: fixed;
 	top: 0;
@@ -143,9 +134,7 @@ html {
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===========================================================
-   CONTENEDOR DE TARJETAS
-   =========================================================== */
+
 .projects-grid {
 	display: flex;
 	flex-direction: column;
@@ -160,9 +149,7 @@ html {
 	z-index: 1;
 }
 
-/* ===========================================================
-   TARJETAS
-   =========================================================== */
+
 .project-card {
 	background: var(--secondary-color);
 	border: 2px solid var(--primary-color);
@@ -192,9 +179,7 @@ html {
 	border-radius: var(--border-radius);
 }
 
-/* ===========================================================
-   CONTENIDO INTERNO DE TARJETAS
-   =========================================================== */
+
 .project-content {
 	padding: var(--spacing-xl);
 	color: var(--primary-color);
@@ -248,9 +233,7 @@ html {
 	font-weight: normal;
 }
 
-/* ===========================================================
-   SUBTARJETAS INTERNAS DENTRO DE CADA TARJETA
-   =========================================================== */
+
 .subcard {
 	background: rgba(255, 255, 255, 0.9);
 	border: 3px solid rgba(0, 0, 0, 0.15);
@@ -299,9 +282,7 @@ html {
 	object-fit: cover;
 }
 
-/* ===========================================================
-   CURSOR PERSONALIZADO
-   =========================================================== */
+
 @media (hover: hover) and (pointer: fine) {
 	body { cursor: none; }
 }
@@ -337,9 +318,7 @@ html {
 	100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 15px var(--highlight-color); }
 }
 
-/* ===========================================================
-   FOOTER
-   =========================================================== */
+
 .portfolio-footer {
 	background: var(--primary-color);
 	color: var(--secondary-color);
