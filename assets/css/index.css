@@ -27,22 +27,22 @@
 
 /* ===== BODY ===== */
 body {
-    font-family: "Futura", sans-serif;
-    line-height: 1.8;
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    background-color: var(--secondary-color);
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    scroll-padding-top: 0;
+	font-family: "Futura", sans-serif;
+	line-height: 1.8;
+	color: var(--text-color);
+	margin: 0;
+	padding: 0;
+	background-color: var(--secondary-color);
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	overflow-y: auto;
+	scroll-padding-top: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 0;
-    overflow-y: auto;
+	scroll-behavior: smooth;
+	scroll-padding-top: 0;
+	overflow-y: auto;
 }
 
 /* ===== ANIMACIÓN FADE-IN ===== */
@@ -94,14 +94,7 @@ html {
 	letter-spacing: 5px;
 	margin-bottom: var(--spacing-md);
 	color: transparent;
-	background: linear-gradient(
-		90deg,
-		#ffffff,
-		#cccccc,
-		#666666,
-		#cccccc,
-		#ffffff
-	);
+	background: linear-gradient(90deg, #ffffff, #cccccc, #666666, #cccccc, #ffffff);
 	background-size: 400%;
 	-webkit-background-clip: text;
 	background-clip: text;
@@ -176,7 +169,7 @@ html {
 	border-radius: var(--border-radius);
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08),
 				0 1px 3px rgba(0, 0, 0, 0.05);
-	overflow: hidden;
+	overflow: visible; /* 🧩 AHORA NO CORTA LAS SUBCARDS */
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	width: calc(100vw - 4rem);
 	margin: 0 auto var(--spacing-xl);
@@ -196,6 +189,7 @@ html {
 	object-fit: cover;
 	display: block;
 	border-bottom: 2px solid var(--primary-color);
+	border-radius: var(--border-radius);
 }
 
 /* ===========================================================
@@ -258,27 +252,28 @@ html {
    SUBTARJETAS INTERNAS DENTRO DE CADA TARJETA
    =========================================================== */
 .subcard {
-	background: rgba(255, 255, 255, 0.8);
-	border: 2px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.9);
+	border: 3px solid rgba(0, 0, 0, 0.15);
 	border-radius: var(--border-radius);
 	padding: var(--spacing-md);
 	margin-bottom: var(--spacing-lg);
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 	transition: all 0.3s ease;
-	backdrop-filter: blur(4px);
+	backdrop-filter: blur(6px);
+	overflow: hidden; /* 🧩 permite contenido interno sin cortarse */
 }
 
 .subcard:hover {
 	transform: translateY(-4px);
-	box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
-	border-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	border-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Título dentro de subtarjeta */
 .subcard h4 {
 	font-size: 1.4rem;
 	font-weight: 700;
-	color: #000; /* negro */
+	color: #000;
 	margin-bottom: var(--spacing-xs);
 	text-transform: none;
 	letter-spacing: 0.5px;
@@ -289,7 +284,19 @@ html {
 	margin: 0;
 	font-size: 1rem;
 	line-height: 1.6;
-	color: #000; /* negro */
+	color: #000;
+}
+
+/* ====== Imágenes dentro de las subcards ====== */
+.subcard img {
+	width: 90%;
+	max-width: 500px;
+	height: auto;
+	display: block;
+	margin: var(--spacing-md) auto;
+	border-radius: 1rem;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+	object-fit: cover;
 }
 
 /* ===========================================================
