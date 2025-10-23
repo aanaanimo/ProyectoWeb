@@ -791,3 +791,8 @@
 </script>
  </body>
 </html>
+<script>
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.pathname);
+  }
+</script>
