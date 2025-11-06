@@ -1,90 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Checkbox oculto controla el tema -->
-<input type="checkbox" id="theme-toggle" hidden />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📜 Scrollytelling Monochrome</title>
+  <link rel="stylesheet" href="../assets/css/site.css" />
+</head>
+<body>
 
-<!-- Todo el contenido va aquí -->
-<main>
-	<!-- El botón toggle usa <label> para controlar checkbox -->
-	<label for="theme-toggle" class="theme-toggle-button"></label>
+  <div class="info-overlay">
+    Scroll Progress: <strong><span id="progress">0</span>%</strong>
+  </div>
 
-	<h1>Contenido estilizado con variables CSS</h1>
-	<!-- Resto de tu contenido -->
-</main>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <div class="hero">
+    <div>
+      <h1>📜 Scrollytelling</h1>
+      <p>Stories That Unfold As You Scroll<br>Experience Interactive Narrative Design</p>
+      <div class="scroll-indicator">↓ Scroll down to begin the story ↓</div>
+    </div>
+  </div>
 
-		<meta name="description" content="Aprende HTML y desarrollo web con las mejores prácticas." />
-		<meta name="keywords" content="HTML, CSS, desarrollo web, SEO, accesibilidad" />
-		<meta name="author" content="Tu Nombre" />
-		<meta name="robots" content="noindex" />
+  <div class="story-section" data-observe>
+    <div class="story-content">
+      <h2>Chapter 1: The Beginning</h2>
+      <p>Scrollytelling combines scrolling with storytelling. As users scroll, content is revealed, animated, or transformed—creating an engaging narrative experience.</p>
 
-		<title>WebApp Design UDIT</title>
-		<link rel="stylesheet" href="/assets/css/site.css" />
+      <div class="stat-display">
+        <div class="stat-item">
+          <span class="stat-number">3x</span>
+          <span class="stat-label">More Engaging</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">70%</span>
+          <span class="stat-label">Longer Sessions</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2x</span>
+          <span class="stat-label">Better Retention</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-		<!--Sólo cargo el barrel file-->
+  <div class="parallax-section">
+    <div class="parallax-content">
+      <h3>The Power of Progressive Disclosure</h3>
+      <p>Information revealed step by step is easier to digest.</p>
+    </div>
+  </div>
 
-		<link rel="icon" type="image/png" href="./assets/icons/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
-		<link rel="shortcut icon" href="./assets/icons/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
-		<link rel="manifest" href="./manifest.json" />
-	</head>
-	<body>
-		<header>
-			<nav>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="./responsive/exercise-1.html">Responsive Design</a></li>
-					<li><a href="./responsive/exercise-2.html">Responsive Design 2</a></li>
-					<li><a href="./animations/index.html">Animations</a></li>
-				</ul>
-			</nav>
-			<!--
-				Theme Toggle: Pedagogical Explanation
+  <div class="story-section" data-observe>
+    <div class="story-content">
+      <h2>Chapter 2: The Techniques</h2>
+      <p>Scrollytelling uses several techniques to create engaging experiences:</p>
 
-				This form provides a CSS-only theme toggle. It uses three radio inputs for 'Auto,' 'Light,' and 'Dark' themes. 
-				Each input has a unique id, and the corresponding labels serve as clickable toggle buttons.
-				- All inputs are 'hidden' to show only the styled label buttons.
-				- The checked input determines the selected theme. 
-				- Modern CSS (see site.css) uses :root:has(#theme-light:checked), etc., to set theme variables.
-				- "Auto" means the site will follow the user's system preference (light/dark).
-				- "Light" and "Dark" force the explicit color theme, regardless of system setting.
+      <div class="interactive-cards">
+        <div class="card">
+          <h4>Fade In</h4>
+          <p>Elements appear as they enter the viewport, creating a sense of discovery.</p>
+        </div>
+        <div class="card">
+          <h4>Parallax</h4>
+          <p>Different layers move at different speeds, creating depth and dimension.</p>
+        </div>
+        <div class="card">
+          <h4>Triggered Animations</h4>
+          <p>Actions occur when users reach specific scroll positions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-				This approach does not require JavaScript. All logic is handled in CSS using the 'has()' selector and custom properties.
-			-->
-			<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
-				<input type="radio" name="theme" id="theme-auto" hidden checked />
-				<input type="radio" name="theme" id="theme-light" hidden />
-				<input type="radio" name="theme" id="theme-dark" hidden />
-				<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
-				<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
-				<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
-			</form>
-		</header>
-		<main>
-			<section>
-				<h1>Welcome to WebApp Design UDIT</h1>
-				<h2>About This WebApp</h2>
-				<p>
-					This is a sample web application design project for UDIT. Explore the features and learn more about modern web
-					development!
-				</p>
-			</section>
-			<section>
-				<h2>Features</h2>
-				<ul>
-					<li>Responsive Design</li>
-					<li>Clean Layout</li>
-					<li>Easy Navigation</li>
-				</ul>
-		
-			</section>
-		</main>
-		<footer>
-			<p>&copy; 2024 WebApp Design UDIT. All rights reserved.</p>
-		</footer>
-	</body>
+  <div class="story-section" data-observe>
+    <div class="story-content">
+      <h2>Timeline Example</h2>
+      <p>Perfect for showing process, history, or journey:</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h4>Step 1: Plan</h4>
+            <p>Define your narrative structure and key moments you want to highlight.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h4>Step 2: Design</h4>
+            <p>Create visual assets and determine animation triggers for each section.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h4>Step 3: Implement</h4>
+            <p>Use Intersection Observer API or libraries like ScrollReveal to bring it to life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-section">
+    <div class="final-content">
+      <h2>The End... or Just the Beginning?</h2>
+      <p>You've experienced scrollytelling firsthand. Now imagine using this technique to tell your own stories—whether for a portfolio, a product launch, or an educational project.</p>
+      <button class="cta-button" onclick="scrollToTop()">Start Over</button>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('[data-observe]').forEach(el => observer.observe(el));
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.round((scrollTop / docHeight) * 100);
+      document.getElementById('progress').textContent = progress;
+    }
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
 </html>
