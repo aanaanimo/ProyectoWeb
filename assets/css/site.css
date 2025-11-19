@@ -258,3 +258,28 @@ body {
     padding-left: 1rem;
   }
 }
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(40px) scale(1);
+  transition: 
+    transform 0.35s ease,
+    background 0.3s ease,
+    opacity 0.6s ease,
+    box-shadow 0.3s ease;
+}
+
+/* fade in al aparecer en pantalla */
+.story-section.visible .card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* hover: solo añadimos scale, no cambiamos translate */
+.story-section.visible .card:hover {
+  transform: translateY(0) scale(1.08);
+  background: rgba(255, 209, 2, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
